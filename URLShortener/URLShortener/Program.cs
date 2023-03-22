@@ -13,7 +13,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDataAccess(builder.Configuration);
 builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<IdentityURLDbContext>();
 
-builder.Services.AddSPA();
+//builder.Services.AddSPA();
 
 var app = builder.Build();
 
@@ -33,14 +33,14 @@ app.UseRouting();
 app.UseAuthorization();
 app.UseAuthentication();
 
-app.UseSpaStaticFiles();
+//app.UseSpaStaticFiles();
 
-app.UseSpa(spa =>
-{
-    spa.Options.SourcePath = "ClientApp";
+//app.UseSpa(spa =>
+//{
+//    spa.Options.SourcePath = "ClientApp";
 
-    spa.UseAngularCliServer(npmScript: "start");
-});
+//    spa.UseAngularCliServer(npmScript: "start");
+//});
 
 app.MapControllerRoute(
     name: "default",

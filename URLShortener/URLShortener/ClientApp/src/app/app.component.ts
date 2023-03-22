@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Insert } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ClientApp';
+  @Insert() name:string|undefined
 }

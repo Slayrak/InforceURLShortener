@@ -4,7 +4,28 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	  
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\dist\client-app\favicon.ico" />
+    <Content Remove="wwwroot\dist\client-app\index.html" />
+    <Content Remove="wwwroot\dist\client-app\main.0fba7d302600e470.js" />
+    <Content Remove="wwwroot\dist\client-app\polyfills.697b8822545d671b.js" />
+    <Content Remove="wwwroot\dist\client-app\runtime.00285116a9b7ab64.js" />
+    <Content Remove="wwwroot\dist\client-app\styles.ef46db3751d8e999.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\dist\client-app\3rdpartylicenses.txt" />
+    <None Include="wwwroot\dist\client-app\favicon.ico" />
+    <None Include="wwwroot\dist\client-app\index.html" />
+    <None Include="wwwroot\dist\client-app\main.0fba7d302600e470.js" />
+    <None Include="wwwroot\dist\client-app\main.26b5bf72e350faee.js" />
+    <None Include="wwwroot\dist\client-app\polyfills.697b8822545d671b.js" />
+    <None Include="wwwroot\dist\client-app\runtime.00285116a9b7ab64.js" />
+    <None Include="wwwroot\dist\client-app\styles.ef46db3751d8e999.css" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.4" />
@@ -27,5 +48,5 @@
     <ProjectReference Include="..\URLShortener.Business\URLShortener.Business.csproj" />
     <ProjectReference Include="..\URLShortener.Database\URLShortener.Database.csproj" />
   </ItemGroup>
-
+    
 </Project>
