@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener", "URLShortener\URLShortener.csproj", "{9AAB9F61-61D1-4C7F-A6B8-E500412B314C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener", "URLShortener\URLShortener.csproj", "{9AAB9F61-61D1-4C7F-A6B8-E500412B314C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Database", "URLShortener.Database\URLShortener.Database.csproj", "{304F7EAF-CB21-480E-90BB-DB35FAEFBF9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener.Database", "URLShortener.Database\URLShortener.Database.csproj", "{304F7EAF-CB21-480E-90BB-DB35FAEFBF9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Domain", "URLShortener.Domain\URLShortener.Domain.csproj", "{3156F7CD-C3EE-4651-B36C-5F5B60D33F9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "URLShortener.Domain", "URLShortener.Domain\URLShortener.Domain.csproj", "{3156F7CD-C3EE-4651-B36C-5F5B60D33F9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URLShortener.Business", "URLShortener.Business\URLShortener.Business.csproj", "{CEFE20EB-90F8-4792-AACE-3EA5AF6FA836}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{3156F7CD-C3EE-4651-B36C-5F5B60D33F9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3156F7CD-C3EE-4651-B36C-5F5B60D33F9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3156F7CD-C3EE-4651-B36C-5F5B60D33F9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEFE20EB-90F8-4792-AACE-3EA5AF6FA836}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEFE20EB-90F8-4792-AACE-3EA5AF6FA836}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEFE20EB-90F8-4792-AACE-3EA5AF6FA836}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEFE20EB-90F8-4792-AACE-3EA5AF6FA836}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

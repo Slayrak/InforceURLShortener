@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using URLShortener.Domain.Models;
 using URLShortener.Configurations;
 using URLShortener.Database.Identity;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDataAccess(builder.Configuration);
 builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<IdentityURLDbContext>();
+
+builder.Services.AddSPA();
 
 var app = builder.Build();
 
@@ -29,6 +32,15 @@ app.UseRouting();
 
 app.UseAuthorization();
 app.UseAuthentication();
+
+app.UseSpaStaticFiles();
+
+app.UseSpa(spa =>
+{
+    spa.Options.SourcePath = "ClientApp";
+
+    spa.UseAngularCliServer(npmScript: "start");
+});
 
 app.MapControllerRoute(
     name: "default",
