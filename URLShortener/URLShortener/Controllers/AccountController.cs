@@ -14,9 +14,10 @@ namespace URLShortener.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
-        public IActionResult Index()
+        public IActionResult Login()
         {
-            return View();
+            var response = new LoginModel();
+            return View(response);
         }
 
         [HttpPost]

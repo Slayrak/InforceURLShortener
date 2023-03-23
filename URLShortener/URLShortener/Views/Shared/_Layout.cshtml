@@ -1,4 +1,4 @@
-﻿x`<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -25,6 +25,18 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Log out</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -46,7 +58,7 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/dist/client-app/runtime.00285116a9b7ab64.js"></script>
     <script src="~/dist/client-app/polyfills.697b8822545d671b.js"></script>
-    <script src="~/dist/client-app/main.0fba7d302600e470.js"></script>
+    <script src="~/dist/client-app/main.26b5bf72e350faee.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

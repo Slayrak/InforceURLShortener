@@ -8,9 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\dist\client-app\3rdpartylicenses.txt" />
     <Content Remove="wwwroot\dist\client-app\favicon.ico" />
     <Content Remove="wwwroot\dist\client-app\index.html" />
-    <Content Remove="wwwroot\dist\client-app\main.0fba7d302600e470.js" />
+    <Content Remove="wwwroot\dist\client-app\main.03d8d2617a6e4523.js" />
     <Content Remove="wwwroot\dist\client-app\polyfills.697b8822545d671b.js" />
     <Content Remove="wwwroot\dist\client-app\runtime.00285116a9b7ab64.js" />
     <Content Remove="wwwroot\dist\client-app\styles.ef46db3751d8e999.css" />
@@ -20,8 +21,7 @@
     <None Include="wwwroot\dist\client-app\3rdpartylicenses.txt" />
     <None Include="wwwroot\dist\client-app\favicon.ico" />
     <None Include="wwwroot\dist\client-app\index.html" />
-    <None Include="wwwroot\dist\client-app\main.0fba7d302600e470.js" />
-    <None Include="wwwroot\dist\client-app\main.26b5bf72e350faee.js" />
+    <None Include="wwwroot\dist\client-app\main.03d8d2617a6e4523.js" />
     <None Include="wwwroot\dist\client-app\polyfills.697b8822545d671b.js" />
     <None Include="wwwroot\dist\client-app\runtime.00285116a9b7ab64.js" />
     <None Include="wwwroot\dist\client-app\styles.ef46db3751d8e999.css" />

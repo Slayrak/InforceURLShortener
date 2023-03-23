@@ -4,6 +4,10 @@ using URLShortener.Domain.Models;
 using URLShortener.Configurations;
 using URLShortener.Database.Identity;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using URLShortener.Domain.Interfaces.Repositories;
+using URLShortener.Database.Repositories;
+using URLShortener.Domain.Interfaces.Services;
+using URLShortener.Business.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +17,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDataAccess(builder.Configuration);
 builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<IdentityURLDbContext>();
 
+builder.Services.AddScoped<IURLRepository, URLRepository>();
+builder.Services.AddScoped<IURLService, URLService>();
 //builder.Services.AddSPA();
 
 var app = builder.Build();
