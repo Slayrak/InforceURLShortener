@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace URLShortener.Domain.Models
 {
-    public class AppUser : IdentityUser
+    public class AppUser : IdentityUser<Guid>
     {
     }
 }

@@ -37,6 +37,9 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
                             </li>
                         }
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="About" asp-action="Index">About</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -56,9 +59,6 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/dist/client-app/runtime.00285116a9b7ab64.js"></script>
-    <script src="~/dist/client-app/polyfills.697b8822545d671b.js"></script>
-    <script src="~/dist/client-app/main.26b5bf72e350faee.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

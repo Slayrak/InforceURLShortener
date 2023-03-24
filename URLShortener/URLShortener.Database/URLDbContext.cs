@@ -19,7 +19,7 @@ namespace URLShortener.Database
         }
 
         public DbSet<URLModel> Urls { get; set; }
-
+        public DbSet<About> About { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<URLModel>()

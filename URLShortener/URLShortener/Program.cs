@@ -15,7 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDataAccess(builder.Configuration);
-builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<IdentityURLDbContext>();
+builder.Services.AddIdentity<AppUser, AppUserRoles>().AddEntityFrameworkStores<IdentityURLDbContext>();
 
 builder.Services.AddScoped<IURLRepository, URLRepository>();
 builder.Services.AddScoped<IURLService, URLService>();
@@ -39,6 +39,7 @@ app.UseRouting();
 app.UseAuthorization();
 app.UseAuthentication();
 
+await app.MigrateDatabaseAsync();
 //app.UseSpaStaticFiles();
 
 //app.UseSpa(spa =>

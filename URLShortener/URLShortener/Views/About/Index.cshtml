@@ -1,0 +1,54 @@
+﻿@model URLShortener.Domain.Models.About
+
+@{bool showForm=(bool)TempData["Show"];}
+
+
+@if(User.IsInRole("Admin"))
+{
+	<input id="btnsubmit" class="btn btn-outline-dark" type="button" value="Change" style="margin-bottom: 10px" />
+}
+
+@if(showForm == true)
+{
+    <input class="form-control" id="AboutInput" name="About" type="text" value="@Model.Content" style="margin-bottom: 10px" />
+    <input id="changesubmit" class="btn btn-outline-dark" type="button" value="submit" />
+
+}
+else
+{
+	<p>@Model.Content</p>
+}
+
+
+@section Scripts
+	{
+	<script type="text/javascript">
+
+		$("#btnsubmit").click(function (e) {
+            let showForm = @Html.Raw(Json.Serialize(showForm));
+            showForm = !showForm;
+
+            var url = '@Url.Action("Index", "About", new { check = "__showForm__" })';
+            window.location.href = url.replace('__showForm__', showForm);
+            }
+        );
+
+        $("#changesubmit").click(function (e) {
+            let showForm = @Html.Raw(Json.Serialize(showForm));
+            showForm = !showForm;
+            alert(showForm)
+
+            $.ajax({
+                url: "@(Url.Action("ChangeView", "About"))",
+                type: "Get",
+                data: { textToChange: $("#AboutInput").val() },
+                success: function (response) {
+                    var url = '@Url.Action("Index", "About", new { check = "__showForm__" })';
+                    window.location.href = url.replace('__showForm__', showForm);
+                 }
+             })
+            }
+         );
+
+	</script>
+}

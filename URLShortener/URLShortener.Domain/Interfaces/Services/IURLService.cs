@@ -14,9 +14,12 @@ namespace URLShortener.Domain.Interfaces.Services
         Task<URLModel> GetURLInfo(long id);
         Task AddURL(URLModel uRLModel);
 
-        Task DeleteURL(long id);
-        Task DeleteAll();
+        void DeleteURL(long id);
+        void DeleteAll();
 
         Task ShortenURL(string URL);
+
+        Task<About> GetAbout();
+        void UpdateAbout(About about);
     }
 }

@@ -12,7 +12,7 @@ namespace URLShortener.Domain.Models
         public string Url { get; set; }
         public string ShortedUrl { get; set; }
 
-        public long CreatorId { get; set; }
+        public string CreatorId { get; set; }
 
         public DateTime CreationDate { get; set; }
     }

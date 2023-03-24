@@ -14,7 +14,11 @@ namespace URLShortener.Domain.Interfaces.Repositories
         Task<URLModel> GetURLInfo(long id);
         Task AddURL(URLModel uRLModel);
 
-        Task DeleteURL(long id);
-        Task DeleteAll();
+        void DeleteURL(long id);
+        void DeleteAll();
+
+        Task<About> GetAbout();
+
+        void UpdateAbout(About about);
     }
 }

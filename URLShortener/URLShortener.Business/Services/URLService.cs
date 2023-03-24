@@ -32,18 +32,27 @@ namespace URLShortener.Business.Services
             await _iURLRepository.AddURL(uRLModel);
         }
 
-        public async Task DeleteURL(long id)
+        public void DeleteURL(long id)
         {
-            await _iURLRepository.DeleteURL(id);
+            _iURLRepository.DeleteURL(id);
         }
-        public async Task DeleteAll()
+        public void DeleteAll()
         {
-            await _iURLRepository.DeleteAll();
+            _iURLRepository.DeleteAll();
         }
 
         public async Task ShortenURL(string url)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<About> GetAbout()
+        {
+            return await _iURLRepository.GetAbout();
+        }
+        public void UpdateAbout(About about)
+        {
+            _iURLRepository.UpdateAbout(about);
         }
     }
 }
