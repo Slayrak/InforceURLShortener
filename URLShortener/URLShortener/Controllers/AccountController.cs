@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using URLShortener.Domain.Interfaces.Repositories;
 using URLShortener.Domain.Models;
 
 namespace URLShortener.Controllers
@@ -8,8 +9,7 @@ namespace URLShortener.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
-
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager )
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -49,6 +49,34 @@ namespace URLShortener.Controllers
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        public async Task<IActionResult> GetUser(string name)
+        {
+            var pass = new UserModelToGet();
+
+            if (name != "")
+            {
+                var user = await _userManager.FindByNameAsync(name);
+                var roles = await _userManager.GetRolesAsync(user);
+
+                pass = new UserModelToGet();
+
+                pass.Id = user.Id.ToString();
+                if (roles != null)
+                {
+                    pass.Role = roles[0];
+                }
+
+                pass.IsAuth = true;
+            } else
+            {
+
+                pass = new UserModelToGet();
+            }
+            
+
+            return Ok(pass);
         }
     }
 }

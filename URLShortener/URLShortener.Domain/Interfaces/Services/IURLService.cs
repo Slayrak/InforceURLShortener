@@ -17,9 +17,11 @@ namespace URLShortener.Domain.Interfaces.Services
         void DeleteURL(long id);
         void DeleteAll();
 
-        Task ShortenURL(string URL);
-
         Task<About> GetAbout();
         void UpdateAbout(About about);
+
+        string IdToShortURL(int n);
+        string Reverse(string input);
+        long shortURLtoID(string shortURL);
     }
 }

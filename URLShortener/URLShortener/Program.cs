@@ -18,8 +18,8 @@ builder.Services.AddDataAccess(builder.Configuration);
 builder.Services.AddIdentity<AppUser, AppUserRoles>().AddEntityFrameworkStores<IdentityURLDbContext>();
 
 builder.Services.AddScoped<IURLRepository, URLRepository>();
+
 builder.Services.AddScoped<IURLService, URLService>();
-//builder.Services.AddSPA();
 
 var app = builder.Build();
 
@@ -36,18 +36,11 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseCrossOriginResourceSharing();
 app.UseAuthorization();
 app.UseAuthentication();
 
 await app.MigrateDatabaseAsync();
-//app.UseSpaStaticFiles();
-
-//app.UseSpa(spa =>
-//{
-//    spa.Options.SourcePath = "ClientApp";
-
-//    spa.UseAngularCliServer(npmScript: "start");
-//});
 
 app.MapControllerRoute(
     name: "default",

@@ -40,6 +40,22 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="About" asp-action="Index">About</a>
                         </li>
+                        @*@if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="GetUser" asp-route-name="@User.Identity.Name">Table</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="GetUser" asp-route-name="">Table</a>
+                            </li>
+                        }*@
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="TableAndInfo" asp-action="ToAngular">Table</a>
+                        </li>
+
                     </ul>
                 </div>
             </div>
