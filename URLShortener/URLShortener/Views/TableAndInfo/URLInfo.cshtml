@@ -1,3 +1,20 @@
 ﻿@model URLShortener.Domain.Models.URLModel
 
-<p>@Model.Url</p>
+<table class="table table-bordered table-responsive table-hover">
+    <tr>
+        <th>URL Id </th>
+        <th>Short URL </th>
+        <th>FullURL </th>
+        <th>Creator Id</th>
+        <th>CreationDate</th>
+    </tr>
+     <tr>
+
+         <td>@Model.Id</td>
+         <td>@Model.ShortedUrl</td>
+         <td>@Model.Url</td>
+         <td>@Model.CreatorId</td>
+         <td>@Model.CreationDate</td>
+
+     </tr>
+</table>  

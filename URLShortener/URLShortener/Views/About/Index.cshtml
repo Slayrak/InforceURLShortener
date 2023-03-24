@@ -36,7 +36,6 @@ else
         $("#changesubmit").click(function (e) {
             let showForm = @Html.Raw(Json.Serialize(showForm));
             showForm = !showForm;
-            alert(showForm)
 
             $.ajax({
                 url: "@(Url.Action("ChangeView", "About"))",

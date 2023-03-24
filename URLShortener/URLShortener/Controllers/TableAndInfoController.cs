@@ -16,5 +16,10 @@ namespace URLShortener.Controllers
         {
             return View();
         }
+
+        public async Task<IActionResult> URLInfo(long id)
+        {
+            return View(await _urlService.GetURLInfo(id));
+        }
     }
 }
