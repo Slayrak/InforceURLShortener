@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using URLShortener.Domain.Interfaces.Repositories;
 using URLShortener.Domain.Models;
+using URLShortener.JwtFeatures;
 
 namespace URLShortener.Controllers
 {
@@ -9,10 +10,12 @@ namespace URLShortener.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager )
+        private readonly JwtHandler _jwtHandler;
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, JwtHandler handler)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _jwtHandler = handler;
         }
         public IActionResult Login()
         {
@@ -35,7 +38,10 @@ namespace URLShortener.Controllers
                     var result = await _signInManager.PasswordSignInAsync(user, loginModel.Password, true, false);
                     if (result.Succeeded)
                     {
-                        return RedirectToAction("Index", "Home");
+                        var roles = await _userManager.GetRolesAsync(user);
+                        var jwttoken = _jwtHandler.CreateJWT(user, roles[0]);
+
+                        return RedirectToAction("Index", "Home", new {token = jwttoken});
                     }
                     TempData["Error"] = "Wrong credentials. Please try again";
                     return View(loginModel);

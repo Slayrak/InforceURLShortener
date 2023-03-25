@@ -8,6 +8,10 @@ using URLShortener.Domain.Interfaces.Repositories;
 using URLShortener.Database.Repositories;
 using URLShortener.Domain.Interfaces.Services;
 using URLShortener.Business.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.Extensions.Configuration;
+using URLShortener.JwtFeatures;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +24,22 @@ builder.Services.AddIdentity<AppUser, AppUserRoles>().AddEntityFrameworkStores<I
 builder.Services.AddScoped<IURLRepository, URLRepository>();
 
 builder.Services.AddScoped<IURLService, URLService>();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateAudience = true,
+        ValidAudience = builder.Configuration.GetSection("JwtSettings")["validAudience"],
+        ValidateIssuer = true,
+        ValidIssuer = builder.Configuration.GetSection("JwtSettings")["validIssuer"],
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(builder.Configuration.GetSection("JwtSettings")["securityKey"])), 
+    };
+});
+
+builder.Services.AddScoped<JwtHandler>();
 
 var app = builder.Build();
 
