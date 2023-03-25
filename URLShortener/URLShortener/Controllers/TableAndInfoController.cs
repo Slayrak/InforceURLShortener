@@ -4,6 +4,7 @@ using URLShortener.Domain.Interfaces.Services;
 
 namespace URLShortener.Controllers
 {
+    [Authorize]
     public class TableAndInfoController : Controller
     {
         private readonly IURLService _urlService;

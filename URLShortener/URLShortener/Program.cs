@@ -37,8 +37,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseCrossOriginResourceSharing();
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseAuthorization();
 
 await app.MigrateDatabaseAsync();
 
